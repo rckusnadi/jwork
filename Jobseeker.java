@@ -1,6 +1,9 @@
 public class Jobseeker
 {
-
+/**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private int id;
     private String name;
     private String email;
@@ -38,7 +41,7 @@ public class Jobseeker
 
     public void printData() {System.out.println("Jobseeker:" + name);}
 
-   
+    
 
 }
 

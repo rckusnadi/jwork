@@ -1,6 +1,9 @@
 public class Invoice
 {
-
+/**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private int id;
     private int idJob;
     private String date;
@@ -37,6 +40,6 @@ public class Invoice
 
     public void printData(){}
 
-    
+     
 
 }

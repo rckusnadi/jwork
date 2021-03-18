@@ -1,5 +1,9 @@
 public class Location
 {
+    /**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private String province;
     private String city;
     private String description;
@@ -21,6 +25,6 @@ public class Location
     public void setDescription(String description) { this.description=description; }
     public void printData() { System.out.println("Provinsi:" + province);}
 
-   
+     
 
 }

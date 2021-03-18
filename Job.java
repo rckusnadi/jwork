@@ -2,6 +2,10 @@
 public class Job
 {
 
+    /**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private int id;
     private String name;
     private int fee;

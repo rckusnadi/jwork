@@ -1,5 +1,9 @@
 public class DatabaseJob
 {
+     /**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private String[] listJob;
 
     public DatabaseJob() { }
@@ -7,4 +11,5 @@ public class DatabaseJob
     public boolean removeJob(Job job) { return false; }
     public Job getJob() { return job; }
     public String[] getListJob() { return listJob; }
+   
 }

@@ -1,6 +1,10 @@
 public class Recruiter
 {
 
+    /**
+ * @author : Ricky
+ * @version : 18/03/2021
+*/
     private int id;
     private String name;
     private String email;
@@ -40,7 +44,7 @@ public class Recruiter
 
     public void printData(){ System.out.println("Recruiter:" + name);}
 
-    
+     
 
 }
 
