@@ -1,10 +1,12 @@
 public class DatabaseJob
 {
-     /**
- * @author : Ricky
- * @version : 18/03/2021
-*/
+    /*
+    *
+    * @author : Ricky
+    * @version : 18/03/2021
+    */
     private String[] listJob;
+    private Job job;
 
     public DatabaseJob() { }
     public boolean addJob(Job job) { return true; }

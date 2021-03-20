@@ -1,12 +1,21 @@
 public class Location
 {
-    /**
- * @author : Ricky
- * @version : 18/03/2021
-*/
+    /*
+     *
+     * @author : Ricky
+     * @version : 18/03/2021
+     */
     private String province;
     private String city;
     private String description;
+    /*
+     *
+     * Constructor for objects of class Location
+     * @param province merupakan provinsi dari location
+     * @param city merupakan kota dari location
+     * @param description merupakan deskripsi dari location
+     *
+     */
     
      public Location (String province, String city, String description) {
         this.province = province;
@@ -15,14 +24,37 @@ public class Location
     }
 
     public String getProvince() { return province; }
+
     public String getCity() { return city; }
+
     public String getDescription() { return description; }
+
+    /*
+     *
+     * Getter province
+     * @return province dari data terkait
+     * Getter city
+     * @return city dari data terkait
+     * Getter description
+     * @return description dari data terkait
+     */
 
     public void setProvince(String province) { this.province = province; }
 
     public void setCity(String city) { this.city = city; }
 
     public void setDescription(String description) { this.description=description; }
+
+    /*
+     *
+     * Setter province
+     * @return nilai baru province dari data terkait
+     * Setter city
+     * @return nilai baru city dari data terkait
+     * Setter description
+     * @return nilai baru description dari data terkait
+     */
+
     public void printData() { System.out.println("Provinsi:" + province);}
 
      
