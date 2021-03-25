@@ -26,10 +26,12 @@ public class JWork
         Job job = new Job(3, "Ahmad", recruiter, 200000, "Montir");
         Jobseeker jobseeker = new Jobseeker(2, "Siti", "siti77@gmail.com", "siti155", "2 Maret 2020");
         Invoice invoice = new Invoice(4, 3, "2 Juli 2020", 2000000, jobseeker);
-        
+
+        recruiter.getName();
+        recruiter.setName("MK");
+        recruiter.getName();
+        recruiter.printData();
         job.printData();
-     
-        
         
     }
 }
