@@ -12,21 +12,12 @@ public class DatabaseRecruiter
      Deklarasi Variable
      */
     private String[] listRecruiter;
-
-    /*
-     *
-     * Constructor untuk objek pada DatabaseRecruiter
-     */
-    public DatabaseRecruiter()
-    {
-    }
-
     /*
      *
      * membuat method addrecruiter dari databaserecruiter
      * @return true
      */
-    public boolean addrecruiter(Recruiter recruiter){
+    public static boolean addrecruiter(Recruiter recruiter){
         return true;
     }
 
@@ -35,7 +26,7 @@ public class DatabaseRecruiter
      * membuat method removerecruiter dari databaserecruiter
      * @return false
      */
-    public boolean removerecruiter(Recruiter recruiter){
+    public static boolean removerecruiter(Recruiter recruiter){
         return false;
     }
 
@@ -44,8 +35,8 @@ public class DatabaseRecruiter
      * getter recruiter dari databaserecruiter
      * @return recruiter
      */
-    public Recruiter getRecruiter(){
-        return recruiter;
+    public static Recruiter getRecruiter(){
+           return recruiter;
     }
 
     /*
@@ -53,7 +44,8 @@ public class DatabaseRecruiter
      * getter getlisrecruiter dari databaserecruiter
      * @return listrecruiter
      */
-    public String[] getListRecruiter(){
+    public static String[] getListRecruiter(){
         return listRecruiter;
     }
+
 }

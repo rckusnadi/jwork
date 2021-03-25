@@ -10,7 +10,7 @@ public class Job
     private int id;
     private String name;
     private int fee;
-    private String category;
+    private jobCategory category;
     private Recruiter recruiter;
 
     /*
@@ -24,7 +24,7 @@ public class Job
      *
      */
 
-    public Job(int id, String name, Recruiter recruiter, int fee, String category) {
+    public Job(int id, String name, Recruiter recruiter, int fee, jobCategory category) {
         this.id = id;
         this.name = name;
         this.recruiter = recruiter;
@@ -39,7 +39,7 @@ public class Job
     
     public int getFee() { return fee; }
     
-    public String getCategory() { return category; }
+    public jobCategory getCategory() { return category; }
 
     public Recruiter getRecruiter() { return recruiter; }
     /*
@@ -64,7 +64,7 @@ public class Job
     
     public void setFee(int fee) { this.fee = fee; }
     
-    public void setCategory(String category) { this.category = category; }
+    public void setCategory(jobCategory category) { this.category = category; }
     /*
      *
      * Setter id
@@ -79,7 +79,15 @@ public class Job
      * @return nilai baru recruiter dari data terkait
      */
 
-    public void printData(){ System.out.println("Nama Pekerjaan:" + category);}
+    public void printData(){
+        System.out.println("==========JOB==========");
+        System.out.println("ID:" + id);
+        System.out.println("Name:" + name);
+        System.out.println("Recruiter:" + recruiter.getName());
+        System.out.println("City"+ recruiter.getLocation().getCity());
+        System.out.println("Fee:" + fee);
+        System.out.println("Category:" + category);
+    }
 
     
 

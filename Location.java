@@ -55,7 +55,7 @@ public class Location
      * @return nilai baru description dari data terkait
      */
 
-    public void printData() { System.out.println("Provinsi:" + province);}
+    public void printData() { System.out.println("Province:" + province);}
 
      
 

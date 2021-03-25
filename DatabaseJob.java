@@ -1,5 +1,3 @@
-public class DatabaseJob
-{
     /*
     *
     * @author : Ricky
@@ -12,23 +10,13 @@ public class DatabaseJob
          Deklarasi Variable
          */
 
-        private String[] listJob;
-
-        /*
-         *
-         * constructor dari databsejob
-         */
-        public DatabaseJob()
-        {
-
-        }
-
+        private static String[] listJob;
         /*
          *
          * membuat method addjob dari databasejob
          * @return true
          */
-        public boolean addJob(Job job){
+        public static boolean addJob(Job job){
             return true;
         }
 
@@ -37,7 +25,7 @@ public class DatabaseJob
          * membuat method removejob dari databasejob
          * @return false
          */
-        public boolean removeJob(Job job){
+        public static boolean removeJob(Job job){
             return false;
         }
 
@@ -46,7 +34,7 @@ public class DatabaseJob
          * getter job dari databasejob
          * @return job
          */
-        public Job getJob(){
+        public static Job getJob(){
             return job;
         }
 
@@ -55,9 +43,8 @@ public class DatabaseJob
          * getter getlisjob dari databasejob
          * @return listjob
          */
-        public String[] getListJob(){
+        public static String[] getListJob(){
             return listJob;
         }
     }
    
-}
