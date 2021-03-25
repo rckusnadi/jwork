@@ -2,40 +2,58 @@ public class DatabaseRecruiter
 {
     /*
      *
-     * 
+     *
      *
      * @author Ricky
      * @version 20-03-2021
      */
-    private String listRecruiter;
-    private Recruiter recruiter;
+    /*
+     *
+     Deklarasi Variable
+     */
+    private String[] listRecruiter;
 
-    /**
-     * Constructor for objects of class DatabaseRecruiter
+    /*
+     *
+     * Constructor untuk objek pada DatabaseRecruiter
      */
     public DatabaseRecruiter()
     {
-        
     }
-    public boolean addRecruiter(Recruiter recruiter){
+
+    /*
+     *
+     * membuat method addrecruiter dari databaserecruiter
+     * @return true
+     */
+    public boolean addrecruiter(Recruiter recruiter){
         return true;
-        
     }
-    public boolean removeRecruiter(Recruiter recruiter){
+
+    /*
+     *
+     * membuat method removerecruiter dari databaserecruiter
+     * @return false
+     */
+    public boolean removerecruiter(Recruiter recruiter){
         return false;
     }
+
+    /*
+     *
+     * getter recruiter dari databaserecruiter
+     * @return recruiter
+     */
     public Recruiter getRecruiter(){
         return recruiter;
     }
-    public String getListRecruiter(){
+
+    /*
+     *
+     * getter getlisrecruiter dari databaserecruiter
+     * @return listrecruiter
+     */
+    public String[] getListRecruiter(){
         return listRecruiter;
     }
-    public void setRecruiter(Recruiter recruiter){
-        this.recruiter = recruiter;
-    }
-    public void setListRecruiter(String listRecruiter){
-        this.listRecruiter = listRecruiter;
-    }
-
-    
 }
