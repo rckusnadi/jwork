@@ -4,23 +4,21 @@
  *
  *
  * @Ricky
- * @25-03-2021
+ * @27-03-2021
  */
 
     public enum PaymentType{
-        BankPayment{
-            public String toString() {
-            return "BankPayment";
-            
-        }},
-        EwalletPayment{
-            public String toString() {
-            return "EwalletPayment";
-            
-        }};
-    public static void main(String[] args){
-    System.out.println(PaymentType.BankPayment);
-    System.out.println(PaymentType.EwalletPayment);
+        BankPayment("Bank Payment"), 
+    EwalletPayment("E-wallet Payment");
+    
+    private String paymenttype;
+    
+    PaymentType(String paymenttype){
+        this.paymenttype = paymenttype;   
+    }
+
+    public String toString() {
+        return paymenttype;
     }
 }
 

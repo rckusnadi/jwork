@@ -3,13 +3,16 @@ public class Invoice
     /*
      *
      * @author : Ricky
-     * @version : 18/03/2021
+     * @version : 27/03/2021
      */
     private int id;
     private int idJob;
     private String date;
     private int totalFee;
     private Jobseeker jobseeker;
+    private PaymentType paymentType; 
+    private InvoiceStatus status;
+
     /*
      *
      * Constructor for objects of class Invoice
@@ -21,12 +24,14 @@ public class Invoice
      *
      */
 
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker) {
+    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status) {
         this.id = id;
         this.idJob = idJob;
         this.date = date;
         this.totalFee = totalFee;
         this.jobseeker = jobseeker;
+        this.paymentType = paymentType;
+        this.status = status;
     }
 
     public int getId() { return id; }
@@ -38,6 +43,8 @@ public class Invoice
     public int getTotalFee() { return totalFee; }
 
     public Jobseeker getJobseeker() { return jobseeker; }
+    
+    public PaymentType getPaymentType(){ return paymentType; }
 
     /*
      *
@@ -62,6 +69,10 @@ public class Invoice
     public void setDate(String date){ this.date = date; }
     
     public void setTotalFee(int totalFee){ this.totalFee = totalFee; }
+    
+    public void setPaymentType(PaymentType paymentType) { this.paymentType = paymentType; }
+
+    public void setInvoiceStatus(InvoiceStatus status) { this.status = status; }
 
     /*
      *
@@ -77,7 +88,15 @@ public class Invoice
      * @return nilai baru jobseeker dari data terkait
      */
 
-    public void printData(){}
+    public void printData(){
+        System.out.println("===================== JOB =====================");
+        System.out.println("ID: " + getId());
+        System.out.println("ID Job: " + getIdJob());
+        System.out.println("Date: " + getDate());
+        System.out.println("Seeker: " + jobseeker.getName());
+        System.out.println("Fee: " + getTotalFee());
+        System.out.println("Status: " + status);
+    }
 
      
 
