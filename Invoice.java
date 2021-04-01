@@ -1,4 +1,4 @@
-public class Invoice
+public abstract class Invoice
 {
     /*
      *
@@ -6,12 +6,11 @@ public class Invoice
      * @version : 27/03/2021
      */
     private int id;
-    private int idJob;
+    private Job job;
     private String date;
-    private int totalFee;
+    protected int totalFee;
     private Jobseeker jobseeker;
-    private PaymentType paymentType; 
-    private InvoiceStatus status;
+    private InvoiceStatus invoiceStatus;
 
     /*
      *
@@ -24,27 +23,46 @@ public class Invoice
      *
      */
 
-    public Invoice(int id, int idJob, String date, int totalFee, Jobseeker jobseeker, PaymentType paymentType, InvoiceStatus status) {
+    public Invoice(int id, Job job, String date,  Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    {
         this.id = id;
-        this.idJob = idJob;
+        this.job = job;
         this.date = date;
-        this.totalFee = totalFee;
         this.jobseeker = jobseeker;
-        this.paymentType = paymentType;
-        this.status = status;
+        this.invoiceStatus = invoiceStatus;
     }
 
-    public int getId() { return id; }
-    
-    public int getIdJob() { return idJob; }
-    
-    public String getDate() { return date; }
-    
-    public int getTotalFee() { return totalFee; }
+    public int getId() {
 
-    public Jobseeker getJobseeker() { return jobseeker; }
+        return id;
+    }
     
-    public PaymentType getPaymentType(){ return paymentType; }
+    public Job getJob() {
+
+        return job;
+    }
+    
+    public String getDate() {
+
+        return date;
+    }
+    
+    public int getTotalFee() {
+
+        return totalFee;
+    }
+
+    public Jobseeker getJobseeker() {
+
+        return jobseeker;
+    }
+
+    public abstract PaymentType getPaymentType();
+
+    public InvoiceStatus getInvoiceStatus() {
+
+        return invoiceStatus;
+    }
 
     /*
      *
@@ -60,20 +78,40 @@ public class Invoice
      * @return jobseeker dari data terkait
      */
 
-    public void setJobseeker(Jobseeker jobseeker) { this.jobseeker = jobseeker; }
+    public void setJobseeker(Jobseeker jobseeker) {
 
-    public void setId(int id){ this.id = id; }
-    
-    public void setIdJobs(int idJobs){ this.idJob = idJobs; }
-    
-    public void setDate(String date){ this.date = date; }
-    
-    public void setTotalFee(int totalFee){ this.totalFee = totalFee; }
-    
-    public void setPaymentType(PaymentType paymentType) { this.paymentType = paymentType; }
+        this.jobseeker = jobseeker;
+    }
 
-    public void setInvoiceStatus(InvoiceStatus status) { this.status = status; }
+    public void setId(int id){
 
+        this.id = id;
+
+    }
+    
+    public void setJob(Job Job){
+
+        this.job = job;
+
+    }
+    
+    public void setDate(String date){
+
+        this.date = date;
+    }
+
+    public void setTotalFee(int totalFee){
+
+        this.totalFee = totalFee;
+    }
+    
+
+    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
+
+        this.invoiceStatus = invoiceStatus;
+    }
+
+    public abstract void setTotalFee();
     /*
      *
      * Setter id
@@ -88,16 +126,6 @@ public class Invoice
      * @return nilai baru jobseeker dari data terkait
      */
 
-    public void printData(){
-        System.out.println("===================== JOB =====================");
-        System.out.println("ID: " + getId());
-        System.out.println("ID Job: " + getIdJob());
-        System.out.println("Date: " + getDate());
-        System.out.println("Seeker: " + jobseeker.getName());
-        System.out.println("Fee: " + getTotalFee());
-        System.out.println("Status: " + status);
-    }
-
-     
+    public abstract void printData();
 
 }

@@ -21,22 +21,35 @@ public class JWork
     
     
     public static void main(String[] args){
-        Location location = new Location("JawaBarat", "Bandung", "KotaKembang");
-        Recruiter recruiter = new Recruiter(1, "ricky", "ricky@gmail.com", "089018084", location);
+        //Location location = new Location("JawaBarat", "Bandung", "KotaKembang");
+        //Recruiter recruiter = new Recruiter(1, "ricky", "ricky@gmail.com", "089018084", location);
         //Job job = new Job(3, "Ahmad", recruiter, 200000, "Montir");
         Jobseeker jobseeker = new Jobseeker(2, "Siti", "siti77@gmail.com", "siti155", "2 Maret 2020");
         //Invoice invoice = new Invoice(4, 3, "2 Juli 2020", 2000000, jobseeker);
 
         //recruiter.getName();
         //recruiter.setName("MK");
-       // recruiter.getName();
+        //recruiter.getName();
         //recruiter.printData();
-       // job.printData();
+        //job.printData();
 
-        //Location location1 = new Location("Jawabarat","Bandung","KotaSejuk");
-        //Recruiter recruiter1 = new Recruiter(12, "Kusnadi", "rickykusnadi@gmail.com", "0812233445", location1);
+        Location location1 = new Location("Jawabarat","Bandung","KotaSejuk");
+        Recruiter recruiter = new Recruiter(12, "Kusnadi", "rickykusnadi@gmail.com", "0812233445", location1);
         Job job = new Job(13, "Designer", recruiter, 12000000, jobCategory.WebDeveloper);
-        Invoice invoice = new Invoice(4, job.getId(), "2 April 2020", job.getFee(), jobseeker,PaymentType.EwalletPayment, InvoiceStatus.Finished);
-        invoice.printData();
+        //Invoice invoice = new Invoice(4, job.getId(), "2 April 2020", job.getFee(), jobseeker,PaymentType.EwalletPayment, InvoiceStatus.Finished);
+        //invoice.printData();
+        Bonus bonus = new Bonus(143, "rck22", 10000, 30000000, true);
+        Bonus bonus1 = new Bonus(122, "rck22", 20000, 40000, true);
+
+        EwalletPayment wallet1 = new EwalletPayment(11, job, "01 April 2021", jobseeker, InvoiceStatus.Cancelled);
+        EwalletPayment wallet2 = new EwalletPayment(22, job, "04 April 2021", jobseeker, bonus, InvoiceStatus.Finished);
+        EwalletPayment wallet3 = new EwalletPayment(33, job, "05 April 2021", jobseeker, bonus1, InvoiceStatus.Finished);
+        
+        wallet1.printData();
+        wallet2.printData();
+        wallet3.printData();
+        
+        
+        
     }
 }

@@ -8,21 +8,29 @@
  */
     public enum jobCategory{
         WebDeveloper{
-        public String toString(){return "WebDeveloper";}},
+        public String toString(){
+            return "WebDeveloper";}},
         FrontEnd{
-        public String toString(){return "FrontEnd";}},
+        public String toString(){
+            return "FrontEnd";}},
         BackEnd{
-        public String toString(){return "BackEnd";}},
+        public String toString(){
+            return "BackEnd";}},
         UI{
-        public String toString(){return "UI";}},
+        public String toString(){
+            return "UI";}},
         UX{
-        public String toString(){return "UX";}},
+        public String toString(){
+            return "UX";}},
         Devops{
-        public String toString(){return "Devops";}},
+        public String toString(){
+            return "Devops";}},
         DataScientist{
-        public String toString(){return "DataScientist";}},
+        public String toString(){
+            return "DataScientist";}},
         DataAnalyst{
-        public String toString(){return "DataAnalyst";}};
+        public String toString(){
+            return "DataAnalyst";}};
     public static void main(String[] args){
     System.out.println(jobCategory.WebDeveloper);
     System.out.println(jobCategory.FrontEnd);

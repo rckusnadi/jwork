@@ -17,6 +17,7 @@
          * @return true
          */
         public static boolean addJob(Job job){
+
             return true;
         }
 
@@ -26,6 +27,7 @@
          * @return false
          */
         public static boolean removeJob(Job job){
+
             return false;
         }
 
@@ -35,6 +37,7 @@
          * @return job
          */
         public static Job getJob(){
+
             return job;
         }
 
@@ -44,6 +47,7 @@
          * @return listjob
          */
         public static String[] getListJob(){
+
             return listJob;
         }
     }

@@ -33,15 +33,30 @@ public class Job
 
     }
 
-    public int getId() { return id; }
-    
-    public String getName() { return name; }
-    
-    public int getFee() { return fee; }
-    
-    public jobCategory getCategory() { return category; }
+    public int getId() {
 
-    public Recruiter getRecruiter() { return recruiter; }
+        return id;
+    }
+    
+    public String getName() {
+
+        return name;
+    }
+    
+    public int getFee() {
+
+        return fee;
+    }
+    
+    public jobCategory getCategory() {
+
+        return category;
+    }
+
+    public Recruiter getRecruiter() {
+
+        return recruiter;
+    }
     /*
      *
      * Getter id
@@ -56,15 +71,30 @@ public class Job
      * @return recruiter dari data terkait
      */
 
-    public void setRecruiter(Recruiter recruiter) { this.recruiter = recruiter; }
+    public void setRecruiter(Recruiter recruiter) {
+
+        this.recruiter = recruiter;
+    }
     
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) {
+
+        this.id = id;
+    }
     
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) {
+
+        this.name = name;
+    }
     
-    public void setFee(int fee) { this.fee = fee; }
+    public void setFee(int fee) {
+
+        this.fee = fee;
+    }
     
-    public void setCategory(jobCategory category) { this.category = category; }
+    public void setCategory(jobCategory category) {
+
+        this.category = category;
+    }
     /*
      *
      * Setter id
@@ -80,13 +110,13 @@ public class Job
      */
 
     public void printData(){
-        System.out.println("==========JOB==========");
-        System.out.println("ID:" + id);
-        System.out.println("Name:" + name);
-        System.out.println("Recruiter:" + recruiter.getName());
-        System.out.println("City"+ recruiter.getLocation().getCity());
-        System.out.println("Fee:" + fee);
-        System.out.println("Category:" + category);
+        System.out.println("==========JOB=========="+
+        "\nID:" + id +
+        "\nName:" + name +
+        "\nRecruiter:" + recruiter.getName() +
+        "\nCity"+ recruiter.getLocation().getCity() +
+        "\nFee:" + fee +
+        "\nCategory:" + category);
     }
 
     

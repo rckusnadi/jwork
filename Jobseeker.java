@@ -30,15 +30,30 @@ public class Jobseeker
         this.joinDate = joinDate;
     }
 
-    public int getId() { return id; }
+    public int getId() {
+
+         return id;
+     }
     
-    public String getName() { return name; }
+    public String getName() {
+
+         return name;
+     }
     
-    public String getEmail() { return email; }
+    public String getEmail() {
+
+         return email;
+     }
     
-    public String getPassword() { return password; }
+    public String getPassword() {
+
+         return password;
+     }
     
-    public String getJoinDate() { return joinDate; }
+    public String getJoinDate() {
+
+         return joinDate;
+     }
 
     /*
      *
@@ -54,15 +69,30 @@ public class Jobseeker
      * @return joindate dari data terkait
      */
     
-    public void setId(int id) { this.id=id; }
+    public void setId(int id) {
+
+        this.id=id;
+    }
     
-    public void setName(String name) { this.name=name; }
+    public void setName(String name) {
+
+        this.name=name;
+    }
     
-    public void setEmail(String email) { this.email=email; }
+    public void setEmail(String email) {
+
+        this.email=email;
+    }
     
-    public void setPassword(String password) { this.password=password; }
+    public void setPassword(String password) {
+
+        this.password=password;
+    }
     
-    public void setJoinDate(String joinDate) { this.joinDate=joinDate; }
+    public void setJoinDate(String joinDate) {
+
+        this.joinDate=joinDate;
+    }
 
     /*
      *
@@ -78,7 +108,9 @@ public class Jobseeker
      * @return nilai baru joindate dari data terkait
      */
 
-    public void printData() {System.out.println("Jobseeker:" + name);}
+    public void printData() {
+
+    }
 
     
 

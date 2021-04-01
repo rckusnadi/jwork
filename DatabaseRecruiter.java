@@ -18,6 +18,7 @@ public class DatabaseRecruiter
      * @return true
      */
     public static boolean addrecruiter(Recruiter recruiter){
+
         return true;
     }
 
@@ -27,6 +28,7 @@ public class DatabaseRecruiter
      * @return false
      */
     public static boolean removerecruiter(Recruiter recruiter){
+
         return false;
     }
 
@@ -36,7 +38,8 @@ public class DatabaseRecruiter
      * @return recruiter
      */
     public static Recruiter getRecruiter(){
-           return recruiter;
+
+        return recruiter;
     }
 
     /*
@@ -45,6 +48,7 @@ public class DatabaseRecruiter
      * @return listrecruiter
      */
     public static String[] getListRecruiter(){
+
         return listRecruiter;
     }
 

@@ -14,10 +14,12 @@ public enum InvoiceStatus
     private String invoicestatus;
     
     InvoiceStatus(String invoicestatus){
-        this.invoicestatus = invoicestatus;   
+
+        this.invoicestatus = invoicestatus;
     }
 
     public String toString() {
+
         return invoicestatus;
     }
 }
