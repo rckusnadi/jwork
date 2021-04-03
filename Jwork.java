@@ -38,16 +38,21 @@ public class JWork
         Job job = new Job(13, "Designer", recruiter, 12000000, jobCategory.WebDeveloper);
         //Invoice invoice = new Invoice(4, job.getId(), "2 April 2020", job.getFee(), jobseeker,PaymentType.EwalletPayment, InvoiceStatus.Finished);
         //invoice.printData();
-        Bonus bonus = new Bonus(143, "rck22", 10000, 30000000, true);
-        Bonus bonus1 = new Bonus(122, "rck22", 20000, 40000, true);
+        //Bonus bonus = new Bonus(143, "rck22", 10000, 30000000, true);
+        //Bonus bonus1 = new Bonus(122, "rck22", 20000, 40000, true);
 
-        EwalletPayment wallet1 = new EwalletPayment(11, job, "01 April 2021", jobseeker, InvoiceStatus.Cancelled);
-        EwalletPayment wallet2 = new EwalletPayment(22, job, "04 April 2021", jobseeker, bonus, InvoiceStatus.Finished);
-        EwalletPayment wallet3 = new EwalletPayment(33, job, "05 April 2021", jobseeker, bonus1, InvoiceStatus.Finished);
+        //EwalletPayment wallet1 = new EwalletPayment(11, job, "01 April 2021", jobseeker, InvoiceStatus.Cancelled);
+        //EwalletPayment wallet2 = new EwalletPayment(22, job, "04 April 2021", jobseeker, bonus, InvoiceStatus.Finished);
+        //EwalletPayment wallet3 = new EwalletPayment(33, job, "05 April 2021", jobseeker, bonus1, InvoiceStatus.Finished);
         
-        wallet1.printData();
-        wallet2.printData();
-        wallet3.printData();
+        BankPayment bank1 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
+        BankPayment bank2 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
+        BankPayment bank3 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
+
+
+        //wallet1.printData();
+        //wallet2.printData();
+        //wallet3.printData();
         
         
         
