@@ -46,10 +46,10 @@ public class JWork
         //EwalletPayment wallet3 = new EwalletPayment(33, job, "05 April 2021", jobseeker, bonus1, InvoiceStatus.Finished);
         
         BankPayment bank1 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
-        BankPayment bank2 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
-        BankPayment bank3 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished);
-
-
+        BankPayment bank2 = new BankPayment(11, job, "03 April 2021", jobseeker, InvoiceStatus.Finished,20);
+        
+        bank1.printData();
+        bank2.printData();
         //wallet1.printData();
         //wallet2.printData();
         //wallet3.printData();
