@@ -48,7 +48,7 @@ public class BankPayment extends Invoice
                             "\nDate: " + getDate() +
                             "\nJob Seeker: " + getJobseeker().getName() +
                             "\nAdmin Fee: " + getAdminFee() +
-                            "\nTotal Fee: " + getTotalFee() +
+                            "\nTotal Fee: " + getJob().getFee() +
                             "\nStatus : " + getInvoiceStatus() +
                             "\nPayment Type: " + PAYMENT_TYPE);
     }

@@ -55,7 +55,9 @@ public class Location
      * @return nilai baru description dari data terkait
      */
 
-    public void printData() { System.out.println("Province:" + province);}
+    public String toString(){
+        return String.format("Province = %s \nCity = %s \nDescription = %s", province,city,description);
+    }
 
      
 

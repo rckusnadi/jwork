@@ -31,15 +31,30 @@ public class Recruiter
 
     }
 
-    public int getId() { return id; }
-    
-    public String getName() { return name; }
-
-    public Location getLocation(){ return location; }
+    public int getId() { 
         
-    public String getEmail() { return email; }
+        return id; 
+    }
     
-    public String getPhoneNumber() { return phoneNumber; }
+    public String getName() { 
+        
+        return name; 
+    }
+
+    public Location getLocation(){ 
+        
+        return location; 
+    }
+        
+    public String getEmail() { 
+        
+        return email; 
+    }
+    
+    public String getPhoneNumber() { 
+        
+        return phoneNumber; 
+    }
 
     /*
      *
@@ -55,15 +70,30 @@ public class Recruiter
      * @return phonenumber dari data terkait
      */
     
-    public void setId(int id) { this.id = id; }
+    public void setId(int id) { 
+        
+        this.id = id; 
+    }
     
-    public void setEmail(String email) { this.email = email; }
+    public void setEmail(String email) { 
+        
+        this.email = email; 
+    }
     
-    public void setName(String name) { this.name = name; }
+    public void setName(String name) { 
+        
+        this.name = name; 
+    }
     
-    public void setPhoneNumber(String phoneNumber) { this.phoneNumber=phoneNumber; }
+    public void setPhoneNumber(String phoneNumber) { 
+        
+        this.phoneNumber=phoneNumber; 
+    }
 
-    public void setLocation(Location location) { this.location=location; }
+    public void setLocation(Location location) { 
+        
+        this.location=location; 
+    }
 
     /*
      *
@@ -79,7 +109,9 @@ public class Recruiter
      * @return nilai baru location dari data terkait
      */
 
-    public void printData(){ System.out.println("Recruiter:" + name);}
+    public String toString(){
+        return String.format("Id = %d \nName = %s \nPhoneNumber = %s \nLocation = %s ", id, name,phoneNumber,location);
+    }
 
      
 

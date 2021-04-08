@@ -17,6 +17,6 @@ comment6.target=void\ setCity(java.lang.String)
 comment7.params=description
 comment7.target=void\ setDescription(java.lang.String)
 comment8.params=
-comment8.target=void\ printData()
+comment8.target=java.lang.String\ toString()
 comment8.text=\r\n\r\n\ Setter\ province\r\n\ @return\ nilai\ baru\ province\ dari\ data\ terkait\r\n\ Setter\ city\r\n\ @return\ nilai\ baru\ city\ dari\ data\ terkait\r\n\ Setter\ description\r\n\ @return\ nilai\ baru\ description\ dari\ data\ terkait\r\n
 numComments=9

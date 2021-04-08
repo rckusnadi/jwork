@@ -1,3 +1,8 @@
+import java.util.Calendar;
+import java.util.regex.*;
+import java.util.GregorianCalendar;
+import java.text.*;
+
 public class Jobseeker
 {
     /*
@@ -9,7 +14,7 @@ public class Jobseeker
     private String name;
     private String email;
     private String password;
-    private String joinDate;
+    public Calendar joinDate;
     /*
      *
      * Constructor for objects of class Jobseeker
@@ -22,12 +27,25 @@ public class Jobseeker
      */
 
 
-     public Jobseeker(int id, String name, String email, String password, String joinDate) {
+    public Jobseeker(int id, String name, String email, String password, Calendar joinDate) {
         this.id = id;
         this.name = name;
         this.email = email;
         this.password = password;
         this.joinDate = joinDate;
+    }
+    public Jobseeker(int id, String name, String email, String password,int year, int month, int dayOfMonth) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.joinDate = new GregorianCalendar(year, month, dayOfMonth);
+    }
+    public Jobseeker(int id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
     }
 
     public int getId() {
@@ -50,7 +68,7 @@ public class Jobseeker
          return password;
      }
     
-    public String getJoinDate() {
+    public Calendar getJoinDate() {
 
          return joinDate;
      }
@@ -79,19 +97,38 @@ public class Jobseeker
         this.name=name;
     }
     
-    public void setEmail(String email) {
-
-        this.email=email;
+    public void setEmail(String email){
+        String regex = "^(?!.*([.])\1)[^.][a-zA-Z0-9.&*_~]+@[^-. ][a-zA-Z0-9-.&*_~]+(?:\\.[a-zA-Z0-9-]+)*";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        if(matcher.matches()){
+            this.email = email;
+        }
+        else{
+            this.email = "";
+        }
     }
     
     public void setPassword(String password) {
 
-        this.password=password;
+        String regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)[a-zA-Z\\d]{6,}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(password);
+        if(matcher.matches()){
+            this.password = password;
+        }
+        else{
+            this.password = "";
+        }
     }
     
-    public void setJoinDate(String joinDate) {
+    public void setJoinDate(Calendar joinDate) {
 
         this.joinDate=joinDate;
+    }
+    public void setJoinDate(int year, int month, int dayOfMonth){
+    
+        this.joinDate=new GregorianCalendar(year, month, dayOfMonth);
     }
 
     /*
@@ -108,11 +145,21 @@ public class Jobseeker
      * @return nilai baru joindate dari data terkait
      */
 
-    public void printData() {
+    public String toString() {
+        if (this.joinDate == null) {
+            return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPassword = "
+                    + getPassword();
+        } else {
+            SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
+            String date = formattedDate.format(getJoinDate().getTime());
+            return "Id = " + getId() + "\nNama = " + getName() + "\nEmail = " + getEmail() + "\nPassword = "
+                    + getPassword() + "\nJoin Date = " + date;
+        }
 
+    }
     }
 
     
 
-}
+
 

@@ -89,17 +89,20 @@ public class Bonus
 
         this.active = active;
     }
+    public String toString(){
+        return String.format("ID = %d \nReferral Code = %s \nExtra Fee = %d \nMin Total Fee = %s \nActive Status = %s", id, referralCode, extraFee, minTotalFee, active);
+    }
 
-    public void printData()
+    /*public void printData()
     {
         System.out.println(
-                "===================== JOB =====================" +
+                "===================== Invoice =====================" +
                         "\nID: " + id +
                         "\nReferreal Code: " + referralCode +
                         "\nExtra Fee: " + extraFee +
                         "\nMinimal Total Fee: " + minTotalFee +
                         "\nActive: " + active
         );
-    }
+    }*/
     
 }
