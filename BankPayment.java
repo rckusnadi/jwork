@@ -55,7 +55,7 @@ public class BankPayment extends Invoice
     }*/
     public String toString() {
     if (getDate() == null) {
-            return  "===================== INVOICE =====================" + "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = "
+            return  "===================== INVOICE =====================" + "\nId = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = "
                     + getJobseeker().getName() + "\nAdmin Fee = " + getAdminFee() + "\nTotal Fee" + getJob().getFee() +
                     "\nStatus : " + getInvoiceStatus() + "\nPayment Type: " + PAYMENT_TYPE;
         } else {

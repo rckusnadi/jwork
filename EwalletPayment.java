@@ -63,11 +63,12 @@ public class EwalletPayment extends Invoice
             }
             setTotalFee();
             System.out.println(
+                            "===================== INVOICE =====================" +
                             "Fee: " + getTotalFee() +
                             "\nStatus: " + getInvoiceStatus() +
                             "\nPayment Type: " + PAYMENT_TYPE);
     if (getDate() == null) {
-            return "===================== INVOICE =====================" +"Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = " + getJobseeker().getName();
+            return "Id = " + getId() + "\nJob = " + getJob().getName() + "\nDate = " + getDate() + "\nJob Seeker = " + getJobseeker().getName();
         } else {
             SimpleDateFormat formattedDate = new SimpleDateFormat("dd-MMMM-yyyy");
             String date = formattedDate.format(getDate().getTime());
