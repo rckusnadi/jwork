@@ -1,3 +1,5 @@
+import java.util.*;
+
 public abstract class Invoice
 {
     /*
@@ -7,7 +9,7 @@ public abstract class Invoice
      */
     private int id;
     private Job job;
-    private String date;
+    private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
     private InvoiceStatus invoiceStatus;
@@ -23,11 +25,10 @@ public abstract class Invoice
      *
      */
 
-    public Invoice(int id, Job job, String date,  Jobseeker jobseeker, InvoiceStatus invoiceStatus)
+    public Invoice(int id, Job job,  Jobseeker jobseeker, InvoiceStatus invoiceStatus)
     {
         this.id = id;
         this.job = job;
-        this.date = date;
         this.jobseeker = jobseeker;
         this.invoiceStatus = invoiceStatus;
     }
@@ -42,7 +43,7 @@ public abstract class Invoice
         return job;
     }
     
-    public String getDate() {
+    public Calendar getDate() {
 
         return date;
     }
@@ -95,9 +96,14 @@ public abstract class Invoice
 
     }
     
-    public void setDate(String date){
+    public void setDate(Calendar date){
 
         this.date = date;
+    }
+    
+    public void setDate(int year, int month, int dayOfMonth){
+    
+        this.date=new GregorianCalendar(year, month, dayOfMonth);
     }
 
     public void setTotalFee(int totalFee){
@@ -126,6 +132,8 @@ public abstract class Invoice
      * @return nilai baru jobseeker dari data terkait
      */
 
-    public abstract void printData();
+    public String toString() {
+        return "";
+    }
 
 }
