@@ -24,12 +24,11 @@ public class JWork
         DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Ricky", "ricky82@ui.ac.id ", "maskus123", new GregorianCalendar(2002, 5, 12)));
         DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Ricky", "ricky@ui.ac.id", "ksunadi123", 2002, 1, 27));
         DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Mustofa", "mustofa@ui.ac.id", "kusnadi123"));
-        //System.out.println(DatabaseJobseeker.getJobseekerById(1).toString());
-        //System.out.println(DatabaseJobseeker.getJobseekerById(2).toString());
-        //System.out.println(DatabaseJobseeker.getJobseekerById(3).toString());
-        System.out.println(DatabaseJob.getJobById(13).toString());
-        System.out.println(DatabaseJob.getJobById(15).toString());
-        System.out.println(DatabaseJob.getJobById(12).toString());
+        System.out.println("\n=====================Jobseeker Database====================\n");
+        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
+        System.out.println("\n=====================Job Database By Category====================\n");
+        System.out.println(DatabaseJob.getJobByCategory(jobCategory.WebDeveloper));
+
 
 
     }
