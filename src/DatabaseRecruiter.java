@@ -1,55 +1,55 @@
+import java.util.ArrayList;
+
+/*
+ *
+ * Write a description of class DatabaseRecruiter here.
+ *
+ * @author Ricky
+ * @version  22-04-2021
+ */
 public class DatabaseRecruiter
 {
-    /*
-     *
-     *
-     *
-     * @author Ricky
-     * @version 20-03-2021
-     */
-    /*
-     *
-     Deklarasi Variable
-     */
-    private String[] listRecruiter;
-    /*
-     *
-     * membuat method addrecruiter dari databaserecruiter
-     * @return true
-     */
-    public static boolean addrecruiter(Recruiter recruiter){
+    private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
+    private static int lastId = 0;
 
+    private static ArrayList<Recruiter> getRecruiterDatabase;
+
+    public static int getLastId()
+    {
+        return lastId;
+    }
+
+    public static Recruiter getRecruiterById(int id)
+    {
+        Recruiter tempVar = null;
+        for (Recruiter recruiter: RECRUITER_DATABASE) {
+            if (id == recruiter.getId()){
+                tempVar = recruiter;
+            }
+            else{
+                tempVar =  null;
+            }
+        }
+        return tempVar;
+    }
+
+    public static boolean addRecruiter(Recruiter recruiter)
+    {
         return true;
     }
 
-    /*
-     *
-     * membuat method removerecruiter dari databaserecruiter
-     * @return false
-     */
-    public static boolean removerecruiter(Recruiter recruiter){
-
-        return false;
+    public static boolean removeRecruiter(int id)
+    {
+        boolean tempBool = true;
+        for (Recruiter recruiter: RECRUITER_DATABASE) {
+            if (id == recruiter.getId()){
+                RECRUITER_DATABASE.remove(id);
+                tempBool = true;
+            }
+            else{
+                tempBool = false;
+            }
+        }
+        return tempBool;
     }
-
-    /*
-     *
-     * getter recruiter dari databaserecruiter
-     * @return recruiter
-     */
-    public static Recruiter getRecruiter(){
-
-        return recruiter;
-    }
-
-    /*
-     *
-     * getter getlisrecruiter dari databaserecruiter
-     * @return listrecruiter
-     */
-    public static String[] getListRecruiter(){
-
-        return listRecruiter;
-    }
-
 }

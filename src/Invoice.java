@@ -8,7 +8,7 @@ public abstract class Invoice
      * @version : 27/03/2021
      */
     private int id;
-    private Job job;
+    ArrayList<Job> jobs = new ArrayList<>();
     private Calendar date;
     protected int totalFee;
     private Jobseeker jobseeker;
@@ -25,22 +25,21 @@ public abstract class Invoice
      *
      */
 
-    public Invoice(int id, Job job,  Jobseeker jobseeker, InvoiceStatus invoiceStatus)
-    {
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker) {
         this.id = id;
-        this.job = job;
+        this.jobs = jobs;
         this.jobseeker = jobseeker;
-        this.invoiceStatus = invoiceStatus;
+
     }
 
     public int getId() {
 
         return id;
     }
-    
-    public Job getJob() {
 
-        return job;
+    public ArrayList<Job> getJobs()
+    {
+        return jobs;
     }
     
     public Calendar getDate() {
@@ -89,10 +88,10 @@ public abstract class Invoice
         this.id = id;
 
     }
-    
-    public void setJob(Job Job){
 
-        this.job = job;
+    public void setJobs(ArrayList<Job> jobs) {
+
+        this.jobs = jobs;
 
     }
     

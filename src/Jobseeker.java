@@ -108,6 +108,7 @@ public class Jobseeker
             this.email = "";
         }
     }
+
     
     public void setPassword(String password) {
 
