@@ -24,6 +24,11 @@ public class JWork
         DatabaseJobseeker.addJobseeker(new Jobseeker(1, "Ricky", "ricky82@ui.ac.id ", "maskus123", new GregorianCalendar(2002, 5, 12)));
         DatabaseJobseeker.addJobseeker(new Jobseeker(2, "Ricky", "ricky@ui.ac.id", "ksunadi123", 2002, 1, 27));
         DatabaseJobseeker.addJobseeker(new Jobseeker(3, "Mustofa", "mustofa@ui.ac.id", "kusnadi123"));
+        DatabaseBonus.addBonus(new Bonus(1,"Bonus" ,125000 ,7500000 ,false ));
+        DatabaseBonus.addBonus(new Bonus(2,"Bonus" ,450000 ,550000 ,true ));
+        for (Bonus i : DatabaseBonus.getBonusDatabase()){
+            System.out.println("\n=====================INVOICE====================\n");
+            System.out.println(i);}
         System.out.println("\n=====================Jobseeker Database====================\n");
         System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
         System.out.println("\n=====================Job Database By Category====================\n");
