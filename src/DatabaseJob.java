@@ -20,12 +20,18 @@ public class DatabaseJob {
         return lastId;
     }
 
-    public static Job getJobById(int id) {
+    public static Job getJobById(int id) throws JobNotFoundException {
         Job temp = null;
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (id == JOB_DATABASE.get(i).getId()) {
-                temp = JOB_DATABASE.get(i);
+
+        try{
+            for (Job job : JOB_DATABASE) {
+                if (id == job.getId()) {
+                    temp = job;
+                }
             }
+        }
+        catch (Exception e){
+            throw new JobNotFoundException(id);
         }
         return temp;
     }
@@ -61,12 +67,17 @@ public class DatabaseJob {
     }
 
 
-    public static boolean removeJob(int id) {
-        for (Job job : JOB_DATABASE) {
-            if (job.getId() == job.getId()) {
-                JOB_DATABASE.remove(job);
-                return true;
+    public static boolean removeJob(int id) throws JobNotFoundException{
+        try{
+            for (Job jobb : JOB_DATABASE) {
+                if (id == jobb.getId()) {
+                    JOB_DATABASE.remove(id);
+                    return true;
+                }
             }
+        }
+        catch (Exception e) {
+            throw new JobNotFoundException(id);
         }
         return false;
     }
