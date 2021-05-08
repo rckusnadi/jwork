@@ -57,8 +57,13 @@ public class JWork {
         } catch (EmailAlreadyExistsException e) {
             System.out.println(e.getMessage());
         }
-
         try {
+            DatabaseInvoice.addInvoice(new Invoice(DatabaseInvoice.getLastId() + 1, "Engginer", , ))
+        }catch (InvoiceNotFoundException e) {
+            System.out.println((e.getMessage()));
+        }
+
+        /*try {
             DatabaseBonus.addBonus(new Bonus(101, "wilos123", 150000, 400000, false));
         } catch (ReferralCodeAlreadyExistsException e) {
             System.out.println(e.getMessage());
@@ -67,13 +72,12 @@ public class JWork {
             DatabaseBonus.addBonus(new Bonus(101, "wilos123", 50000, 300000, true));
         } catch (ReferralCodeAlreadyExistsException e) {
             System.out.println(e.getMessage());
-        }
-        System.out.println("=========Database JobSeeker============");
-        System.out.println(DatabaseJobseeker.getDatabaseJobseeker());
+        }*/
+        System.out.println("=========Database Invoice============");
+        System.out.println(DatabaseInvoice.getInvoiceDatabase());
 
-        System.out.println("=========Database Bonus===============");
-        System.out.println(DatabaseBonus.getBonusDatabase());
     }
+
 
 }
         
