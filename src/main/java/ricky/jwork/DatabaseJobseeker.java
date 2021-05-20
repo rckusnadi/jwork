@@ -23,6 +23,15 @@ public class DatabaseJobseeker
         return lastId;
     }
 
+    public static Jobseeker getJobseekerLogin(String email, String password){
+        for (Jobseeker jobseeker : JOBSEEKER_DATABASE) {
+            if (jobseeker.getEmail().equals(email) && jobseeker.getPassword().equals(password)) {
+                return jobseeker;
+            }
+        }
+        return null;
+    }
+
     public static Jobseeker getJobseekerById(int id) throws JobSeekerNotFoundException{
         Jobseeker temp = null;
         try{
