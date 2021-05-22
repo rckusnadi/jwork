@@ -51,27 +51,29 @@ public class InvoiceController {
     }
 
     @RequestMapping(value = "/createEWalletPayment", method = RequestMethod.POST)
-    public Invoice addEWalletPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
-                                     @RequestParam(value = "jobseekerId") int jobseekerId,
-                                     @RequestParam(value = "referralCode") Bonus refferalCode){
-        ArrayList<Job> job = new ArrayList<>();
-        for (int jb : jobIdList) {
-            try {
-                job.add(DatabaseJob.getJobById(jb);
-            } catch (JobNotFoundException e) {
-                System.out.println(e.getMessage());
+    public Invoice addBankPayment(@RequestParam(value = "jobIdList") ArrayList<Integer> jobIdList,
+                                  @RequestParam(value = "jobseekerId") int jobseekerId,
+                                  @RequestParam(value = "referralCode") Bonus referralCode)
+    {
+        try{
+            ArrayList<Job> jobs = new ArrayList<Job>();
+            for (Integer id : jobIdList){
+                Job job = DatabaseJob.getJobById(id);
+                jobs.add(job);
             }
-        }
-        try {
-            Invoice invoice = new EwalletPayment(DatabaseInvoice.getLastId()+1, job,
-                    DatabaseJobseeker.getJobseekerById(jobseekerId), DatabaseBonus.getBonusByRefferalCode(refferalCode));
-            DatabaseInvoice.addInvoice(invoice);
-            invoice.setTotalFee();
-            return invoice;
-        } catch (JobSeekerNotFoundException | OngoingInvoiceAlreadyExistsException e) {
+            Jobseeker jobseeker = DatabaseJobseeker.getJobseekerById(jobseekerId);
+            EwalletPayment ep = new EwalletPayment(DatabaseInvoice.getLastId() + 1, jobs, jobseeker, referralCode);
+            DatabaseInvoice.addInvoice(ep);
+            return ep;
+        } catch (JobSeekerNotFoundException e){
             System.out.println(e.getMessage());
-            return null;
+        } catch (JobNotFoundException e){
+            System.out.println(e.getMessage());
+        } catch (OngoingInvoiceAlreadyExistsException e){
+            System.out.println(e.getMessage());
         }
+        return null;
+    }
     }
 
 
