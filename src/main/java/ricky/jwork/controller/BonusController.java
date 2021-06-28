@@ -1,9 +1,6 @@
 package ricky.jwork.controller;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ricky.jwork.*;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
@@ -12,13 +9,12 @@ import java.util.ArrayList;
 public class BonusController {
     @RequestMapping(value = "", method = RequestMethod.GET)
     public ArrayList<Bonus> getAllBonus() {
-        return DatabaseBonus.getBonusDatabase();
+        return (DatabaseBonus.getBonusDatabase());
     }
 
-    @RequestMapping(value = "/{referralCode}", method = RequestMethod.GET)
-    public Bonus getBonusByReferralCode(
-            @RequestParam(value = "referralCode") String referralCode) {
-        return (DatabaseBonus.getBonusByRefferalCode(referralCode));
+    @RequestMapping(value = "/{referralCode}")
+    public Bonus getBonusByReferralCode(@PathVariable String referralCode){
+        return (DatabaseBonus.getBonusByReferralCode(referralCode));
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)

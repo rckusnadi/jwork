@@ -8,10 +8,15 @@ import java.util.ArrayList;
 @RequestMapping("/job")
 @RestController
 public class JobController {
+
     @RequestMapping("")
     public ArrayList<Job> getAllJob() {
-        return DatabaseJob.getJobDatabase();
+        ArrayList<Job> job = null;
+
+        job = DatabaseJob.getJobDatabase();
+        return job;
     }
+
     @RequestMapping("/{id}")
     public Job getJobById(@PathVariable int id) {
         Job job = null;
@@ -24,7 +29,7 @@ public class JobController {
         return job;
     }
 
-    @RequestMapping("/recruiter/recruiterId")
+    @RequestMapping("/recruiter/{recruiterId}")
     public ArrayList<Job> getJobByRecruiter(@PathVariable int recruiterId) {
         ArrayList<Job> job = null;
         job = DatabaseJob.getJobByRecruiter(recruiterId);
@@ -32,7 +37,7 @@ public class JobController {
         return job;
     }
 
-    @RequestMapping("/category/category")
+    @RequestMapping("/category/{category}")
     public ArrayList<Job> getJobByCategory(@PathVariable jobCategory category) {
         ArrayList<Job> job = null;
         job = DatabaseJob.getJobByCategory(category);
@@ -40,24 +45,21 @@ public class JobController {
     }
 
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Job addJob(@RequestParam(value="name") String name,
-                      @RequestParam(value="fee") int fee,
-                      @RequestParam(value="category") jobCategory category,
-                      @RequestParam(value="recruiterId") int recruiterId)
-    {
+    public Job addJob(@RequestParam(value = "name") String name,
+                      @RequestParam(value = "fee") int fee,
+                      @RequestParam(value = "category") String category,
+                      @RequestParam(value = "recruiterId") int recruiterId) {
         Job job = null;
         try {
-            job = new Job(DatabaseJobseeker.getLastId()+1, name, DatabaseRecruiter.getRecruiterById(recruiterId), fee, category);
+            job = new Job(DatabaseJob.getLastId() + 1, name, DatabaseRecruiter.getRecruiterById(recruiterId), fee, jobCategory.valueOf(category));
         } catch (RecruiterNotFoundException e) {
             e.getMessage();
         }
-
-        Boolean status = DatabaseJob.addJob(job);
-        if(status == true){
+        boolean status = DatabaseJob.addJob(job);
+        if (status == true) {
             return job;
         } else {
             return null;
         }
     }
-
 }
