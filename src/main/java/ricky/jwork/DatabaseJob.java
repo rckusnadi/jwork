@@ -2,18 +2,54 @@ package ricky.jwork;
 
 import java.util.ArrayList;
 
-/*
-    *
+/**
     * @author : Ricky
     * @version : 18/03/2021
     */
 public class DatabaseJob {
 
-    // listjob variable
-
+    // instance variables dari class DatabaseJob
     private static ArrayList<Job> JOB_DATABASE = new ArrayList<Job>();
     private static int lastId = 0;
 
+    /**
+     * method ini digunakan untuk mengisi data job
+     *
+     * @param job berisi total Job
+     * @return false
+     */
+    public static boolean addJob(Job job) {
+        JOB_DATABASE.add(job);
+        lastId = job.getId();
+        return true;
+    }
+
+    /**
+     * method ini digunakan untuk menghapus data job
+     *
+     * @param id berisi total Job
+     * @return false
+     */
+    public static boolean removeJob(int id) throws JobNotFoundException {
+        boolean status = false;
+        for (Job job : JOB_DATABASE) {
+            if (job.getId() == id) {
+                JOB_DATABASE.remove(job);
+                status = true;
+                break;
+            }
+        }
+        if (!status) {
+            throw new JobNotFoundException(id);
+        }
+        return status;
+    }
+
+    /**
+     * method ini digunakan untuk mengambil data job
+     *
+     * @return null
+     */
     public static ArrayList<Job> getJobDatabase() {
         return JOB_DATABASE;
     }
@@ -22,33 +58,36 @@ public class DatabaseJob {
         return lastId;
     }
 
+    /**
+     * method ini digunakan untuk mengambil data joblist
+     *
+     * @param id
+     * @return void
+     */
     public static Job getJobById(int id) throws JobNotFoundException {
         Job temp = null;
-
-        try{
-            for (Job job : JOB_DATABASE) {
-                if (id == job.getId()) {
-                    temp = job;
-                }
+        for (int i = 0; i < JOB_DATABASE.size(); i++) {
+            if (id == JOB_DATABASE.get(i).getId()) {
+                temp = JOB_DATABASE.get(i);
             }
         }
-        catch (Exception e){
+        if (temp == null) {
             throw new JobNotFoundException(id);
         }
         return temp;
     }
 
     public static ArrayList<Job> getJobByRecruiter(int recruiterId) {
-        ArrayList<Job> temp = new ArrayList<Job>();
-        for (int i = 0; i < JOB_DATABASE.size(); i++) {
-            if (recruiterId == JOB_DATABASE.get(i).getRecruiter().getId()) {
-                temp.add(JOB_DATABASE.get(i));
-            } else {
-                return null;
+        ArrayList<Job> temp = null;
+        for (Job job : JOB_DATABASE) {
+            if (recruiterId == job.getRecruiter().getId()) {
+                if (temp == null) {
+                    temp = new ArrayList<Job>();
+                }
+                temp.add(job);
             }
         }
         return temp;
-
     }
 
     public static ArrayList<Job> getJobByCategory(jobCategory category) {
@@ -60,29 +99,4 @@ public class DatabaseJob {
         }
         return temp;
     }
-
-
-    public static boolean addJob(Job job) {
-        JOB_DATABASE.add(job);
-        lastId = job.getId();
-        return true;
-    }
-
-
-    public static boolean removeJob(int id) throws JobNotFoundException{
-        try{
-            for (Job jobb : JOB_DATABASE) {
-                if (id == jobb.getId()) {
-                    JOB_DATABASE.remove(id);
-                    return true;
-                }
-            }
-        }
-        catch (Exception e) {
-            throw new JobNotFoundException(id);
-        }
-        return false;
-    }
-
-    // Access method to fetch a specific existing Job
 }

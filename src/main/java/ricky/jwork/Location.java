@@ -18,18 +18,27 @@ public class Location
      * @param description merupakan deskripsi dari location
      *
      */
-    
+
      public Location (String province, String city, String description) {
         this.province = province;
         this.city = city;
         this.description = description;
     }
 
-    public String getProvince() { return province; }
+    public String getProvince()
+    {
+        return this.province;
+    }
 
-    public String getCity() { return city; }
+    public String getCity()
+    {
+        return this.city;
+    }
 
-    public String getDescription() { return description; }
+    public String getDescription()
+    {
+        return this.description;
+    }
 
     /*
      *
@@ -41,11 +50,20 @@ public class Location
      * @return description dari data terkait
      */
 
-    public void setProvince(String province) { this.province = province; }
+    public void setProvince(String province)
+    {
+        this.province = province;
+    }
 
-    public void setCity(String city) { this.city = city; }
+    public void setCity(String city)
+    {
+        this.city = city;
+    }
 
-    public void setDescription(String description) { this.description=description; }
+    public void setDescription(String description)
+    {
+        this.description = description;
+    }
 
     /*
      *

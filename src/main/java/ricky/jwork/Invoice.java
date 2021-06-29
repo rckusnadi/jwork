@@ -27,114 +27,122 @@ public abstract class Invoice
      *
      */
 
-    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker) {
+    /**
+            * Constructor for objects of class Invoice
+     * @param id berisi data id invoice
+     * @param jobs berisi data idJob invoice
+     * @param jobseeker merujuk pada list jobseeker
+     */
+    public Invoice(int id, ArrayList<Job> jobs, Jobseeker jobseeker)
+    {
         this.id = id;
         this.jobs = jobs;
         this.jobseeker = jobseeker;
-
+        this.date = Calendar.getInstance();
     }
 
-    public int getId() {
-
+    /**
+     * method ini digunakan untuk mengambil data id invoice
+     * @return void
+     */
+    public int getId()
+    {
         return id;
     }
-
-    public ArrayList<Job> getJobs()
-    {
+    /**
+     * method ini digunakan untuk mengambil data idjob invoice
+     * @return void
+     */
+    public ArrayList<Job> getJobs(){
         return jobs;
     }
-    
-    public Calendar getDate() {
-
+    /**
+     * method ini digunakan untuk mengambil data date invoice
+     * @return void
+     */
+    public Calendar getDate()
+    {
         return date;
     }
-    
-    public int getTotalFee() {
-
+    /**
+     * method ini digunakan untuk mengambil data total fee invoice
+     * @return void
+     */
+    public int getTotalFee()
+    {
         return totalFee;
     }
-
-    public Jobseeker getJobseeker() {
-
-        return jobseeker;
-    }
-
+    /**
+     * method ini digunakan untuk mengambil data jobseeker invoice
+     * @return void
+     */
     public abstract PaymentType getPaymentType();
-
-    public InvoiceStatus getInvoiceStatus() {
-
+    /**
+     * method ini digunakan untuk mengambil data jobseeker invoice
+     * @return void
+     */
+    public InvoiceStatus getInvoiceStatus()
+    {
         return invoiceStatus;
     }
-
-    /*
-     *
-     * Getter id
-     * @return id dari data terkait
-     * Getter idjob
-     * @return idJob dari data terkait
-     * Getter date
-     * @return date dari data terkait
-     * Getter TotalFee
-     * @return totalfee dari data terkait
-     * Getter jobseeker
-     * @return jobseeker dari data terkait
+    /**
+     * method ini digunakan untuk mengambil data jobseeker invoice
+     * @return void
      */
-
-    public void setJobseeker(Jobseeker jobseeker) {
-
+    public Jobseeker getJobseeker()
+    {
+        return jobseeker;
+    }
+    /**
+     * method ini digunakan untuk melakukan set nilai pada id invoice
+     * @param id
+     */
+    public void setId(int id)
+    {
+        this.id = id;
+    }
+    /**
+     * method ini digunakan untuk melakukan set nilai pada idjob invoice
+     * @param jobs
+     */
+    public void setJob(ArrayList<Job> jobs)
+    {
+        this.jobs = jobs;
+    }
+    /**
+     * method ini digunakan untuk melakukan set nilai pada waktu invoice
+     * @param date
+     */
+    public void setDate(Calendar date)
+    {
+        this.date = Calendar.getInstance();
+    }
+    public void setDate(int year, int month, int dayOfMonth)
+    {
+        this.date = new GregorianCalendar(year, month-1, dayOfMonth);
+    }
+    /**
+     * method ini digunakan untuk melakukan set nilai pada total fee invoice
+     */
+    public abstract void setTotalFee();
+    /**
+     * method ini digunakan untuk melakukan set nilai pada jobseeker invoice
+     * @param jobseeker
+     */
+    public void setJobseeker(Jobseeker jobseeker)
+    {
         this.jobseeker = jobseeker;
     }
-
-    public void setId(int id){
-
-        this.id = id;
-
-    }
-
-    public void setJobs(ArrayList<Job> jobs) {
-
-        this.jobs = jobs;
-
-    }
-    
-    public void setDate(Calendar date){
-
-        this.date = date;
-    }
-    
-    public void setDate(int year, int month, int dayOfMonth){
-    
-        this.date=new GregorianCalendar(year, month, dayOfMonth);
-    }
-
-    public void setTotalFee(int totalFee){
-
-        this.totalFee = totalFee;
-    }
-    
-
-    public void setInvoiceStatus(InvoiceStatus invoiceStatus) {
-
-        this.invoiceStatus = invoiceStatus;
-    }
-
-    public abstract void setTotalFee();
-    /*
-     *
-     * Setter id
-     * @return nilai baru id dari data terkait
-     * Setter idjob
-     * @return nilai baru idJob dari data terkait
-     * Setter date
-     * @return nilai baru date dari data terkait
-     * Setter TotalFee
-     * @return nilai baru totalfee dari data terkait
-     * Setter jobseeker
-     * @return nilai baru jobseeker dari data terkait
+    /**
+     * method ini digunakan untuk melakukan set nilai pada jobseeker invoice
+     * @param InvoiceStatus
      */
-
-    public String toString() {
-        return "";
+    public void setInvoiceStatus(InvoiceStatus InvoiceStatus)
+    {
+        this.invoiceStatus = InvoiceStatus;
     }
-
+    public abstract String toString();
 }
+
+
+

@@ -1,7 +1,6 @@
 package ricky.jwork;
 import java.util.ArrayList;
-/*
- *
+/**
  * Write a description of class DatabaseRecruiter here.
  *
  * @author Ricky
@@ -9,52 +8,61 @@ import java.util.ArrayList;
  */
 public class DatabaseRecruiter
 {
+    // instance variables - replace the example below with your own
     private static ArrayList<Recruiter> RECRUITER_DATABASE = new ArrayList<Recruiter>();
     private static int lastId = 0;
 
-    public static ArrayList<Recruiter> getRecruiterDatabase(){
+    public static ArrayList<Recruiter> getRecruiterDatabase() {
         return RECRUITER_DATABASE;
-    };
+    }
 
-    public static int getLastId()
-    {
+    public static int getLastId() {
         return lastId;
     }
 
-    public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
-        Recruiter temp = null;
-
-        try{
-            for (Recruiter element : RECRUITER_DATABASE) {
-                if (element.getId() == id) {
-                    temp = element;
-                    return temp;
-                }
-            }
-        }
-        catch (Exception e){
-            throw new RecruiterNotFoundException(id);
-        }
-        return temp;
-    }
-
-    public static boolean addRecruiter(Recruiter recruiter)
-    {
+    /**
+     * method menambahkan recruiter
+     *
+     * @param recruiter
+     * @return boolean
+     */
+    public static boolean addRecruiter(Recruiter recruiter) {
+        RECRUITER_DATABASE.add(recruiter);
+        lastId = recruiter.getId();
         return true;
     }
 
+    /**
+     * method menghapus recruiter
+     *
+     * @param id
+     * @return boolean
+     */
     public static boolean removeRecruiter(int id) throws RecruiterNotFoundException {
-        try{
-            for (Recruiter element : RECRUITER_DATABASE) {
-                if (element.getId() == id) {
-                    RECRUITER_DATABASE.remove(element);
-                    return true;
-                }
+        boolean tempBool = true;
+        for (Recruiter recruiter : RECRUITER_DATABASE) {
+            if (id == recruiter.getId()) {
+                RECRUITER_DATABASE.remove(id);
+                tempBool = true;
+                return tempBool;
             }
         }
-        catch (Exception e){
-            throw new RecruiterNotFoundException(id);
+        throw new RecruiterNotFoundException(id);
+    }
+
+    /**
+     * method mendapatkan recuiter
+     *
+     * @return null
+     */
+    public static Recruiter getRecruiterById(int id) throws RecruiterNotFoundException {
+        Recruiter temp = null;
+        for (Recruiter recruiter: RECRUITER_DATABASE) {
+            if (id == recruiter.getId()) {
+                temp = recruiter;
+                return temp;
+            }
         }
-        return false;
+        throw new RecruiterNotFoundException(id);
     }
 }

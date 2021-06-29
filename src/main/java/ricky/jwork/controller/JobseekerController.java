@@ -1,5 +1,4 @@
 package ricky.jwork.controller;
-import static ricky.jwork.DatabaseJobseekerPostgre.getJobseekerLogin;
 import ricky.jwork.*;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,8 +40,7 @@ public class JobseekerController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Jobseeker loginJobseeker(@RequestParam(value = "email") String email,
                                     @RequestParam(value = "password") String password) {
-        return (getJobseekerLogin(email, password));
+        return (DatabaseJobseekerPostgre.getJobseekerLogin(email, password));
     }
-
 
 }
