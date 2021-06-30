@@ -9,19 +9,25 @@ package ricky.jwork;
  */
 public enum InvoiceStatus
 {
-    OnGoing("On Going"), 
-    Finished("Finished"),
-    Cancelled("Cancelled");
-    
-    private String invoicestatus;
-    
-    InvoiceStatus(String invoicestatus){
+    OnGoing("On Going"),Finished("Finished"),Cancelled("Cancelled");
 
-        this.invoicestatus = invoicestatus;
+    private String invoice;
+    private InvoiceStatus(String invoice)
+    {
+        this.invoice = invoice;
     }
 
-    public String toString() {
-
-        return invoicestatus;
+    @Override
+    public String toString(){
+        return invoice;
     }
-}
+
+    public static void main(String[] args)
+    {
+        InvoiceStatus inv1 = InvoiceStatus.OnGoing;
+        InvoiceStatus inv2 = InvoiceStatus.Finished;
+        InvoiceStatus inv3 = InvoiceStatus.Cancelled;
+        System.out.println(inv1);
+        System.out.println(inv2);
+        System.out.println(inv3);
+    }}

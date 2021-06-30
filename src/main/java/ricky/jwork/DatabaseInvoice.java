@@ -9,54 +9,45 @@ import java.util.ArrayList;
 
 public class DatabaseInvoice {
     private static ArrayList<Invoice> INVOICE_DATABASE = new ArrayList<Invoice>();
-    private static int lastId;
+    private static int lastId = 0;
 
-    public static ArrayList<Invoice> getInvoiceDatabase() {
+    public static ArrayList<Invoice> getInvoiceDatabase(){
         return INVOICE_DATABASE;
     }
 
-    public static int getLastId() {
+    public static int getLastId(){
         return lastId;
     }
 
-    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException{
-        Invoice val = null;
-        try
-        {
-            for (Invoice invc : INVOICE_DATABASE)
-            {
-                if (id == invc.getId())
-                {
-                    val = invc;
-                }
+    public static Invoice getInvoiceById(int id) throws InvoiceNotFoundException {
+        Invoice result = null;
+        for (Invoice invoice : INVOICE_DATABASE) {
+            if (id == invoice.getId()) {
+                result = invoice;
+            } else {
+                result = null;
             }
         }
-        catch (Exception error)
-        {
+        if (result == null){
             throw new InvoiceNotFoundException(id);
         }
-        return val;
+
+        return result;
     }
 
-
-    public static ArrayList<Invoice> getInvoiceByJobseeker(int jobseekerId) {
-        ArrayList<Invoice> temp = null;
-        for (Invoice invoice : INVOICE_DATABASE) {
-            if (jobseekerId == invoice.getJobseeker().getId()) {
-                if (temp == null) {
-                    temp = new ArrayList<Invoice>();
-                }
-                temp.add(invoice);
+    public static ArrayList<Invoice> getInvoiceByJobseeker(int jobseekerid){
+        ArrayList<Invoice> temp = new ArrayList<Invoice>();
+        for (int i = 0; i < INVOICE_DATABASE.size(); i++) {
+            if (jobseekerid == INVOICE_DATABASE.get(i).getJobseeker().getId()) {
+                temp.add(INVOICE_DATABASE.get(i));
             }
         }
         return temp;
     }
 
     public static boolean addInvoice(Invoice invoice) throws OngoingInvoiceAlreadyExistsException{
-        for (Invoice invc : INVOICE_DATABASE)
-        {
-            if (invoice.getInvoiceStatus() == invc.getInvoiceStatus())
-            {
+        for (Invoice invoices : INVOICE_DATABASE) {
+            if (invoices.getInvoiceStatus() == InvoiceStatus.OnGoing) {
                 throw new OngoingInvoiceAlreadyExistsException(invoice);
             }
         }
@@ -65,29 +56,32 @@ public class DatabaseInvoice {
         return true;
     }
 
-    public static boolean changeInvoiceStatus(int id, InvoiceStatus invoiceStatus) {
-        boolean temp = true;
-        for (Invoice invoice : INVOICE_DATABASE) {
-            if (id == invoice.getId()) {
+    public static boolean changeInvoiceStatus(int id,InvoiceStatus invoiceStatus){
+        boolean tempBool = true;
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (id == invoice.getId()){
                 invoice.setInvoiceStatus(InvoiceStatus.OnGoing);
-                temp = true;
-            } else {
-                temp = false;
+                tempBool = true;
+            }
+            else{
+                tempBool = false;
             }
         }
-        return temp;
+        return tempBool;
     }
 
     public static boolean removeInvoice(int id) throws InvoiceNotFoundException{
-        for (Invoice invc : INVOICE_DATABASE)
-        {
-            if (invc.getId() == id)
-            {
-                INVOICE_DATABASE.remove(invc);
-                return true;
+        boolean tempBool = false;
+        for (Invoice invoice: INVOICE_DATABASE) {
+            if (id == invoice.getId()){
+                INVOICE_DATABASE.remove(id);
+                tempBool = true;
+                break;
             }
         }
-        throw new InvoiceNotFoundException(id);
+        if (!tempBool) {
+            throw new InvoiceNotFoundException(id);
+        }
+        return tempBool;
     }
-
 }
